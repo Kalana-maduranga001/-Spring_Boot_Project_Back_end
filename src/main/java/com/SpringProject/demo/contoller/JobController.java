@@ -39,6 +39,9 @@ public class JobController {
         jobService.ActivateJobStatus(id);
     }
 
-
+    @GetMapping("search/{keyword}")
+    public List<JobDto> searchJob(@PathVariable("keyword") String keyword) {
+        return jobService.searchJobs(keyword);
+    }
 
 }

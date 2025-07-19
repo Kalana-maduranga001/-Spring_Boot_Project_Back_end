@@ -47,11 +47,11 @@ public class JobServiceImpl implements JobService {
         jobRepository.activateJobService(id);
     }
 
-
-//    @Override
-//    public List<JobDto> searchJobs(String keyword) {
-//        return List.of();
-//    }
+    @Override
+    public List<JobDto> searchJobs(String keyword) {
+        List<JOB> jobs = jobRepository.findJobByJobTitleContainingIgnoreCase(keyword);
+        return modelMapper.map(jobs , new TypeToken<List<JobDto>>(){}.getType());
+    }
 
 
 }
